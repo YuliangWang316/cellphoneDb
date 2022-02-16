@@ -1,0 +1,14 @@
+cellphonedb method analysis /mnt/d/jyc/metadata.txt /mnt/d/jyc/normalize_counts.txt  --counts-data gene_name --project-name cpdb_jyc_analysis_normalizecounts
+cellphonedb method analysis /mnt/d/jyc/metadata.txt /mnt/d/jyc/scale_count.txt  --counts-data gene_name --project-name cpdb_jyc_analysis_scalecounts
+cellphonedb method statistical_analysis /mnt/d/jyc/metadata.txt /mnt/d/jyc/normalize_counts.txt  --counts-data gene_name --project-name cpdb_jyc_analysis_normalizecounts_statistic --threads 40
+cellphonedb method statistical_analysis /mnt/d/jyc/metadata.txt /mnt/d/jyc/scale_count.txt  --counts-data gene_name --project-name cpdb_jyc_analysis_scalecounts_statistic --threads 40
+
+cellphonedb plot dot_plot --means-path out/cpdb_jyc_analysis_normalizecounts/means.txt --pvalues-path out/cpdb_jyc_analysis_normalizecounts_statistic/pvalues.txt --output-name normalizecounts_dotplot.pdf
+cellphonedb plot dot_plot --means-path out/cpdb_jyc_analysis_scalecounts/means.txt --pvalues-path out/cpdb_jyc_analysis_scalecounts_statistic/pvalues.txt --output-name scaledatacounts_dotplot.pdf
+cellphonedb plot heatmap_plot metadata.txt --pvalues-path out/cpdb_jyc_analysis_normalizecounts_statistic/pvalues.txt --count-name normalizecounts_heatmap.pdf --log-name normalizecounts_heatmap_log.pdf --count-network-name normalizecounts_heatmap_network.txt --interaction-count-name normalizecounts_heatmap_interaction.txt
+cellphonedb plot heatmap_plot metadata.txt --pvalues-path out/cpdb_jyc_analysis_scalecounts_statistic/pvalues.txt --count-name scalecounts_heatmap.pdf --log-name scalecounts_heatmap_log.pdf --count-network-name scalecounts_heatmap_network.txt --interaction-count-name scalecounts_heatmap_interaction.txt
+
+
+
+
+
